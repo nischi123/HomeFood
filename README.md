@@ -24,7 +24,7 @@ HomeFood is an actively evolving project. The following features are planned for
 
 These enhancements will be implemented incrementally as part of the project's ongoing development.
 
-Currently I have done below 
+****Currently I have done below ****
 
 # 🍽️ HomeFood – Food Ordering Application
 
