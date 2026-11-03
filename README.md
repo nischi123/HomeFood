@@ -1,3 +1,31 @@
+
+## 🚧 Project Roadmap – Upcoming Features
+
+HomeFood is an actively evolving project. The following features are planned for future development to improve scalability, security, performance and real-time user experience.
+
+| Feature | Planned Implementation | Status |
+|---|---|---|
+| Redis | Caching frequently accessed data and improving API performance | Planned |
+| RBAC | Role-Based Access Control for Customers, Restaurant Admins and Super Admins | Planned |
+| Rate Limiting | Protecting APIs against excessive requests and brute-force attacks | Planned |
+| Socket.IO | Real-time order status updates and notifications | Planned |
+| Payment Gateway | Online payment integration using Razorpay | Planned |
+| Idempotency Keys | Preventing duplicate payment processing during retries | Planned |
+| OAuth 2.0 | Google authentication and social login | Planned |
+| CI/CD | Automated testing, Docker image builds and deployment using GitHub Actions | Planned |
+
+### Development Goals
+
+- Improve application scalability and performance.
+- Strengthen API security and access control.
+- Implement reliable payment processing.
+- Introduce real-time order tracking.
+- Automate testing and deployment workflows.
+
+These enhancements will be implemented incrementally as part of the project's ongoing development.
+
+Currently I have done below 
+
 # 🍽️ HomeFood – Food Ordering Application
 
 HomeFood is a full-stack food ordering application developed using React.js, Node.js, Express.js, and MongoDB. It provides a user-friendly interface for exploring food items and managing user accounts and cart details.
