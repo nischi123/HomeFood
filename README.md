@@ -74,33 +74,26 @@ HomeFood/
 └── README.md
 ```
 
-## ⚙️ Installation and Setup
+## 🐳 Running HomeFood Using Docker
+
+HomeFood is containerized using Docker and Docker Compose. Developers do not need to install Node.js, Yarn, or application dependencies on their local machines.
 
 ### Prerequisites
-
-Make sure you have installed:
-
-- Node.js
-- Yarn or npm
-- MongoDB (local installation or MongoDB Atlas)
+- Git
 - Docker
 - Docker Compose
+- MongoDB Atlas connection string
 
 ### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/nischi123/HomeFood.git
-```
-
-Navigate into the project:
-
-```bash
 cd HomeFood
 ```
 
-### 2. Configure Backend Environment Variables
+### 2. Configure Environment Variables
 
-Create a `.env` file inside the Backend folder.
+Create a `.env` file inside the `Backend` directory:
 
 ```env
 PORT=5000
@@ -108,40 +101,26 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 ```
 
-Replace the placeholder values with your own MongoDB connection string and a strong JWT secret.
-
-**Important:** Never upload your actual `.env` file or credentials to GitHub.
-
-### 3. Run the Backend
+### 3. Build and Start the Application
 
 ```bash
-cd Backend
-yarn install
-yarn dev
+docker compose up --build
 ```
 
-Backend runs at:
+Docker automatically builds the frontend and backend images, installs their dependencies, and starts both containers.
 
-```text
-http://localhost:5000
-```
+### 4. Access the Application
 
-### 4. Run the Frontend
+| Service | URL |
+|---|---|
+| Frontend | http://localhost:5173 |
+| Backend | http://localhost:5000 |
 
-Open another terminal:
+### 5. Stop the Application
 
 ```bash
-cd Frontend
-yarn install
-yarn dev
+docker compose down
 ```
-
-Frontend runs at:
-
-```text
-http://localhost:5173
-```
-
 ## 🐳 Running the Application Using Docker
 
 HomeFood supports Docker containerization for both frontend and backend applications.
