@@ -1,0 +1,1274 @@
+/* =========================
+   GENERAL
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  min-height: 100vh;
+  background: #fff8ed;
+  color: #422006;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 5%;
+  background: #4b2615;
+  color: white;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 25px;
+  background: #d97706;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cart:hover {
+  transform: translateY(-2px);
+  background: #b45309;
+}
+
+/* =========================
+   HERO AND SEARCH
+========================= */
+.hero {
+  padding: 25px 15px;
+  text-align: center;
+  background: linear-gradient(135deg, #fff1d6, #ffdfad);
+}
+
+.hero h3 {
+  margin: 0 0 10px;
+  font-size: 25px;
+}
+
+.hero p {
+  color: #78513a;
+}
+
+.hero input {
+  width: min(100%, 450px);
+  padding: 13px 18px;
+  border: 1px solid #e7c9a5;
+  border-radius: 25px;
+  outline: none;
+  font-size: 15px;
+}
+
+.hero input:focus {
+  border-color: #b45309;
+  box-shadow: 0 0 0 3px #b453091c;
+}
+
+/* =========================
+   BOOK SECTION
+========================= */
+.book-section {
+  min-height: 100vh;
+  padding: 14px 42px 35px;
+  background: linear-gradient(135deg, #fff8ed, #ffead2);
+  text-align: center;
+  overflow: hidden;
+}
+
+.book-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 30px;
+  color: #080808;
+}
+
+.book-heading svg {
+  color: #804216;
+}
+
+.book-heading h2 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 500;
+}
+
+/* =========================
+   OUTER BOOK COVER
+========================= */
+.food-book {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 44px;
+  background: linear-gradient(
+    100deg,
+    #75401f 0%,
+    #a66b3b 12%,
+    #c38b50 50%,
+    #a66b3b 88%,
+    #75401f 100%
+  );
+  border: 2px solid #75401f;
+  border-radius: 22px 30px 30px 22px;
+  box-shadow:
+    0 22px 38px #60381330,
+    inset 0 2px 3px #f3c58a50;
+  perspective: 2200px;
+}
+
+/* Book spine */
+.book-spine {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 16px;
+  background: linear-gradient(
+    to right,
+    #4d2915,
+    #d6a16b,
+    #87502c,
+    #512d17
+  );
+  border-left: 2px solid #603813;
+  border-right: 2px solid #603813;
+  pointer-events: none;
+}
+
+/* =========================
+   TWO-PAGE BOOK SPREAD
+========================= */
+.book-spread {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  width: 100%;
+  min-height: 450px;
+  border-radius: 12px;
+  transform-style: preserve-3d;
+  isolation: isolate;
+}
+
+/* Shared paper styling */
+.book-left-page,
+.book-right-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 450px;
+  padding: 35px;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    #fffef8 0%,
+    #fffaf0 65%,
+    #f1dfbd 100%
+  );
+  border-top: 1px solid #ead4ad;
+  border-bottom: 1px solid #e0c29a;
+}
+
+/* Left page stays visible */
+.book-left-page {
+  z-index: 1;
+  border-radius: 12px 0 0 12px;
+  box-shadow:
+    inset -12px 0 18px -14px #59371f90,
+    inset 5px 0 8px #ffffffaa;
+}
+
+/* Right page underneath the turning page */
+.next-page-underneath {
+  z-index: 0;
+  border-radius: 0 12px 12px 0;
+  box-shadow:
+    inset 12px 0 18px -14px #59371f90,
+    inset -5px 0 8px #d4b38445;
+}
+
+/* Center binding */
+.book-spread::after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 24px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to right,
+    #d9c29d00,
+    #a88a5c35,
+    #6f4b2d35,
+    #a88a5c30,
+    #d9c29d00
+  );
+  pointer-events: none;
+}
+
+/* Paper edges */
+.book-left-page::before,
+.next-page-underneath::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 5px;
+  border-radius: 5px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #e5d1ae 0,
+    #e5d1ae 2px,
+    #fff9ec 3px,
+    #d9c19b 4px
+  );
+  opacity: 0.8;
+}
+
+.book-left-page::before {
+  left: 5px;
+}
+
+.next-page-underneath::before {
+  right: 5px;
+}
+
+/* =========================
+   LEFT PAGE: FOOD IMAGE
+========================= */
+.book-image-area {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-width: 0;
+  perspective: 1000px;
+}
+
+.book-food-image {
+  display: block;
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border: 4px solid #fffaf0;
+  border-radius: 15px;
+  box-shadow:
+    0 15px 28px #00000020,
+    0 2px 5px #6b451e25;
+  transition: transform 0.4s ease;
+}
+
+.book-food-image:hover {
+  transform: scale(1.025);
+}
+
+.food-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 13px 17px;
+  border-radius: 35px;
+  background: #fff8ed;
+  color: #a63212;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 3px 8px #00000012;
+}
+
+/* Page numbers */
+.page-corner {
+  position: absolute;
+  bottom: 12px;
+  color: #a58a64;
+  font-family: Georgia, serif;
+  font-size: 13px;
+}
+
+.left-corner {
+  left: 20px;
+}
+
+.right-corner {
+  right: 20px;
+}
+
+/* =========================
+   RIGHT PAGE: FOOD DETAILS
+========================= */
+.book-food-details {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 5px 8px;
+  text-align: left;
+}
+
+.page-number {
+  margin: 0 0 20px;
+  color: #a85c00;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.page-decoration {
+  margin-bottom: 20px;
+  color: #c39a60;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.book-food-details h2 {
+  margin: 0 0 20px;
+  color: #4b260f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 500;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.food-description {
+  margin: 0 0 20px;
+  color: #756653;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.book-price {
+  margin: 0 0 18px;
+  color: #07843c;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+/* =========================
+   ADD AND REMOVE BUTTONS
+========================= */
+.add-btn,
+.remove-btn {
+  padding: 14px 25px;
+  border: none;
+  border-radius: 35px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.add-btn {
+  background: linear-gradient(110deg, #16a34a, #11803c);
+  box-shadow: 0 8px 16px #16a34a30;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px #15803d40;
+}
+
+.remove-btn {
+  background: linear-gradient(110deg, #dc2626, #b91c1c);
+  box-shadow: 0 8px 16px #dc262630;
+}
+
+.remove-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   COMPLETE TURNING PAGE
+========================= */
+.turning-page {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  width: 50%;
+  min-height: 450px;
+  padding: 35px;
+  overflow: hidden;
+  border-radius: 0 12px 12px 0;
+  background: linear-gradient(
+    100deg,
+    #f2dfbd,
+    #fffdf6 18%,
+    #fffaf0 82%,
+    #ead5b1
+  );
+  box-shadow: inset 12px 0 20px -16px #56371f90;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Front content */
+.turning-page > .book-food-details {
+  position: relative;
+  z-index: 1;
+  backface-visibility: hidden;
+}
+
+/* Reverse side of the turning paper */
+.page-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    100deg,
+    #e9d4af,
+    #fff7e7 20%,
+    #f6e8ce 100%
+  );
+  border: 1px solid #ddc49c;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+
+.page-back-decoration {
+  color: #c5a576;
+  font-family: Georgia, serif;
+  font-size: 75px;
+  opacity: 0.65;
+}
+
+/* Forward page turn */
+.turning-page.turn-next {
+  animation: fullPageTurnNext 850ms ease-in-out forwards;
+  pointer-events: none;
+}
+
+/* Backward page turn */
+.turning-page.turn-previous {
+  transform-origin: right center;
+  animation: fullPageTurnPrevious 850ms ease-in-out forwards;
+  pointer-events: none;
+}
+
+@keyframes fullPageTurnNext {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: inset 12px 0 20px -16px #56371f90;
+  }
+
+  35% {
+    box-shadow:
+      -12px 5px 18px #00000020,
+      inset 14px 0 24px #56371f35;
+  }
+
+  65% {
+    box-shadow:
+      -22px 8px 28px #00000030,
+      inset 18px 0 26px #56371f45;
+  }
+
+  100% {
+    transform: rotateY(-180deg);
+    box-shadow: -4px 2px 10px #00000012;
+  }
+}
+
+@keyframes fullPageTurnPrevious {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: inset -12px 0 20px -16px #56371f90;
+  }
+
+  35% {
+    box-shadow:
+      12px 5px 18px #00000020,
+      inset -14px 0 24px #56371f35;
+  }
+
+  65% {
+    box-shadow:
+      22px 8px 28px #00000030,
+      inset -18px 0 26px #56371f45;
+  }
+
+  100% {
+    transform: rotateY(180deg);
+    box-shadow: 4px 2px 10px #00000012;
+  }
+}
+
+/* =========================
+   NAVIGATION ARROWS
+========================= */
+.page-arrow {
+  position: absolute;
+  z-index: 8;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 68px;
+  padding: 0;
+  border: none;
+  border-radius: 17px;
+  background: #fffdf5;
+  color: #804216;
+  box-shadow: 0 8px 18px #00000020;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.page-arrow:hover:not(:disabled) {
+  background: #f5dfbf;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.page-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.left-arrow {
+  left: -25px;
+}
+
+.right-arrow {
+  right: -25px;
+}
+
+/* =========================
+   BOTTOM HINT AND PAGE DOTS
+========================= */
+.book-hint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  color: #9a5516;
+  font-size: 20px;
+}
+
+.page-dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 22px;
+}
+
+.page-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #d9b68c;
+  cursor: pointer;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 30px;
+  background: #fff4e5;
+  color: #512b18;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.profile-btn:hover {
+  background: #ffe1b5;
+}
+
+/* Keep the image and plate inside the left page */
+.food-scene {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 340px;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+/* Plate behind the food image */
+.food-plate {
+  position: absolute;
+  z-index: 1;
+  width: 88%;
+  aspect-ratio: 1;
+  max-height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 25%,
+    #ffffff,
+    #fffdf5 40%,
+    #d8d2c7 80%,
+    #a8a29a
+  );
+  box-shadow:
+    0 22px 25px rgba(0, 0, 0, 0.25),
+    inset 0 5px 10px rgba(255, 255, 255, 0.9);
+  animation: plateArrive 1.5s ease-out both;
+}
+
+/* Food image above the plate */
+.animated-food {
+  position: relative;
+  z-index: 2;
+  width: 72% !important;
+  height: 240px !important;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 12px !important;
+  opacity: 0;
+  transform: translateY(30px) scale(0.5);
+  animation: foodAppear 1s ease-out 2s forwards;
+}
+
+/* Food should appear after the plate */
+@keyframes plateArrive {
+  from {
+    opacity: 0;
+    transform: translateY(80px) rotateX(35deg) scale(0.6);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+  }
+}
+
+@keyframes foodAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Keep food details visible on the right page */
+.book-right-page {
+  position: relative;
+}
+
+.book-food-details {
+  position: relative;
+  z-index: 3;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  .food-scene {
+    min-height: 250px;
+  }
+
+  .food-plate {
+    max-height: 230px;
+  }
+
+ .animated-food {
+  position: relative;
+  z-index: 2;
+  width: 78% !important;
+  height: 250px !important;
+  object-fit: contain;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  opacity: 0;
+  transform: translateY(30px) scale(0.5);
+
+  animation: foodAppear 1s ease-out 2s forwards;
+}
+}
+/* Two-page food book */
+.book-spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  width: 100%;
+  min-height: 450px;
+}
+.book-left-page,
+.book-right-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 450px;
+  padding: 25px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.book-left-page {
+  border-radius: 12px 0 0 12px;
+}
+
+.book-right-page {
+  border-radius: 0 12px 12px 0;
+}
+
+book-image-area.food-scene {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 350px;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+/* =========================================
+   EMPTY PLATE
+========================================= */
+
+.food-scene .food-plate {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+
+  width: 92%;
+  aspect-ratio: 1.6 / 1;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    ellipse at 35% 25%,
+    #ffffff 0%,
+    #fffdf5 55%,
+    #e4ded3 85%,
+    #b7afa2 100%
+  );
+
+  box-shadow:
+    0 20px 25px rgba(0, 0, 0, 0.22),
+    inset 0 4px 8px rgba(255, 255, 255, 0.95),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.10);
+
+  transform: translate(-50%, -50%);
+
+  animation: plateArrive 1.2s ease-out both;
+}
+
+/* Plate rim */
+
+.food-scene .plate-rim {
+  position: absolute;
+  inset: 7%;
+
+  border: 5px solid #fffefa;
+  border-radius: 50%;
+
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+/* Inner surface of plate */
+
+.food-scene .plate-center {
+  position: absolute;
+  inset: 7%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    ellipse at center,
+    #fffefa 0%,
+    #f8f5ed 100%
+  );
+}
+
+/* =========================================
+   FOOD IMAGE
+   Food should appear in the middle,
+   slightly toward the back of the plate.
+========================================= */
+
+.food-scene .animated-food {
+  position: absolute !important;
+
+  z-index: 2;
+
+  left: 50%;
+  top: 43%;
+
+  display: block;
+
+  width: 65% !important;
+  height: 210px !important;
+
+  max-width: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  /* Remove photo frame and background */
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  /* Initially hide food */
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(-25px)
+    scale(0.72);
+
+  /* Food appears after the plate */
+  animation: foodServe 1.2s ease-out 1s forwards;
+}
+
+/* =========================================
+   HOMEMADE LABEL
+========================================= */
+
+.food-scene .food-tag {
+  position: absolute;
+  z-index: 3;
+
+  top: 10px;
+  left: 10px;
+}
+
+/* =========================================
+   PLATE ANIMATION
+========================================= */
+
+@keyframes plateArrive {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   FOOD SERVING ANIMATION
+========================================= */
+
+@keyframes foodServe {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      translateY(-25px)
+      scale(0.72);
+  }
+
+  70% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      translateY(0)
+      scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      translateY(0)
+      scale(1);
+  }
+}
+
+/* =========================================
+   RIGHT PAGE - FOOD DETAILS
+========================================= */
+
+.book-right-page .book-food-details {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 10px;
+  box-sizing: border-box;
+
+  text-align: left;
+}
+
+.book-right-page .book-food-details h2 {
+  color: #4b260f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.book-right-page .food-description {
+  color: #756653;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.book-right-page .book-price {
+  color: #07843c;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 700px) {
+  .book-spread {
+    grid-template-columns: 1fr;
+  }
+
+  .book-left-page,
+  .book-right-page {
+    min-height: 300px;
+    padding: 15px;
+  }
+
+  .book-image-area.food-scene {
+    min-height: 280px;
+  }
+
+  .food-scene .food-plate {
+    width: 92%;
+  }
+
+  .food-scene .animated-food {
+    width: 65% !important;
+    height: 180px !important;
+  }
+
+  .book-right-page .book-food-details {
+    padding: 10px;
+  }
+
+  .book-right-page .book-food-details h2 {
+    font-size: 24px;
+  }
+
+  .book-right-page .food-description {
+    font-size: 15px;
+  }
+
+  .book-right-page .book-price {
+    font-size: 27px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .food-scene .food-plate {
+    animation: none;
+  }
+
+  .food-scene .animated-food {
+    animation: none;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+/* =====================================
+   REALISTIC BOOK PAGE TURNING
+===================================== */
+
+.book-spread {
+  position: relative;
+  perspective: 1800px;
+  transform-style: preserve-3d;
+  overflow: visible;
+}
+
+/* The page that physically turns */
+.page-flip {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  min-height: 450px;
+
+  z-index: 20;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+
+  background: linear-gradient(
+    90deg,
+    #d8c0a0 0%,
+    #fffaf0 8%,
+    #fffdf7 85%,
+    #d6c2a6 100%
+  );
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+}
+
+/* Next: right page turns toward the left */
+.page-flip.next {
+  left: 50%;
+  transform-origin: left center;
+  animation: turnNextPage 850ms ease-in-out forwards;
+}
+
+/* Back: left page turns toward the right */
+.page-flip.previous {
+  left: 0;
+  transform-origin: right center;
+  animation: turnPreviousPage 850ms ease-in-out forwards;
+}
+
+/* Front and back surfaces */
+.page-flip-front,
+.page-flip-back {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  text-align: center;
+  color: #70401f;
+
+  background: linear-gradient(
+    135deg,
+    #fffdf7,
+    #f1dfc5
+  );
+
+  border: 1px solid rgba(120, 75, 40, 0.2);
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.page-flip-front h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+}
+
+.page-flip-front span,
+.page-flip-back span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Reverse side of the turning page */
+.page-flip-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(
+    135deg,
+    #f1dfc5,
+    #fffaf0
+  );
+}
+
+/* Next page: right to left */
+@keyframes turnNextPage {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  45% {
+    box-shadow: -15px 8px 25px rgba(0, 0, 0, 0.25);
+  }
+
+  100% {
+    transform: rotateY(-180deg);
+    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Previous page: left to right */
+@keyframes turnPreviousPage {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  45% {
+    box-shadow: 15px 8px 25px rgba(0, 0, 0, 0.25);
+  }
+
+  100% {
+    transform: rotateY(180deg);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+  .page-flip {
+    min-height: 300px;
+  }
+
+  .page-flip-front h2 {
+    font-size: 17px;
+  }
+
+  .page-flip-front span,
+  .page-flip-back span {
+    font-size: 12px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .page-flip.next,
+  .page-flip.previous {
+    animation-duration: 1ms;
+  }
+}
+
+
+/* Steam container */
+.food-steam {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 8%;
+  width: 50%;
+  height: 150px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0;
+  animation: steamStart 0.5s ease 2.2s forwards;
+}
+
+/* Light but visible steam */
+.steam {
+  position: absolute;
+  bottom: 0;
+  width: 16px;
+  height: 75px;
+  border-radius: 50%;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.65),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0)
+  );
+  filter: blur(5px);
+  opacity: 0;
+  animation: steamRise 2.5s ease-in-out infinite;
+}
+
+.steam-1 {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.steam-2 {
+  left: 48%;
+  height: 90px;
+  animation-delay: 0.6s;
+}
+
+.steam-3 {
+  left: 75%;
+  height: 80px;
+  animation-delay: 1.2s;
+}
+
+/* Show steam after the food appears */
+@keyframes steamStart {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Steam rises continuously */
+@keyframes steamRise {
+  0% {
+    opacity: 0;
+    transform: translate(0, 10px) scale(0.8);
+  }
+
+  30% {
+    opacity: 0.8;
+  }
+
+  60% {
+    opacity: 0.5;
+    transform: translate(8px, -35px) scale(1.1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-8px, -85px) scale(1.3);
+  }
+}

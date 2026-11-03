@@ -1,0 +1,243 @@
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 20px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #fff7ed, #ffedd5, #fef3c7);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 38px 35px;
+  box-sizing: border-box;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #f5dfc5;
+  border-radius: 22px;
+  box-shadow: 0 15px 45px rgba(120, 53, 15, 0.13);
+  animation: registerFadeIn 0.5s ease;
+}
+
+.register-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 12px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ea580c, #f97316);
+  border-radius: 50%;
+  box-shadow: 0 7px 18px rgba(234, 88, 12, 0.25);
+}
+
+.register-title {
+  margin: 8px 0;
+  color: #9a3412;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.register-subtitle {
+  margin: 0;
+  color: #78716c;
+  font-size: 14px;
+}
+
+.register-divider {
+  margin: 19px 0;
+  color: #ea580c;
+  font-size: 22px;
+}
+
+.register-card h2 {
+  margin: 0 0 10px;
+  color: #292524;
+  font-size: 24px;
+}
+
+.register-description {
+  margin: 0 0 25px;
+  color: #78716c;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.register-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.register-input-group label {
+  color: #44403c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.register-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 13px;
+  border: 1px solid #e7d5c5;
+  border-radius: 10px;
+  background: #fffaf5;
+  color: #c2410c;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.register-input-wrapper:focus-within {
+  border-color: #ea580c;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.12);
+}
+
+.register-input-wrapper input {
+  width: 100%;
+  min-width: 0;
+  padding: 14px 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #292524;
+  font-size: 14px;
+}
+
+.register-input-wrapper input::placeholder {
+  color: #a8a29e;
+}
+
+.register-input-wrapper input:disabled {
+  cursor: not-allowed;
+}
+
+.register-hint {
+  color: #78716c;
+  font-size: 12px;
+}
+
+.register-submit-button {
+  width: 100%;
+  margin-top: 5px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ea580c, #c2410c);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.register-submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(194, 65, 12, 0.25);
+}
+
+.register-submit-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.register-message {
+  margin: 18px 0 0;
+  padding: 11px;
+  border-radius: 8px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.register-message.success {
+  color: #166534;
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+}
+
+.register-message.error {
+  color: #991b1b;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+}
+
+.register-login-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #f0e5dc;
+}
+
+.register-login-section p {
+  margin: 0 0 10px;
+  color: #78716c;
+  font-size: 14px;
+}
+
+.register-login-button {
+  padding: 9px 16px;
+  border: 1px solid #ea580c;
+  border-radius: 8px;
+  background: transparent;
+  color: #c2410c;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.register-login-button:hover:not(:disabled) {
+  background: #ea580c;
+  color: #ffffff;
+}
+
+.register-login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.register-footer {
+  margin: 24px 0 0;
+  color: #a8a29e;
+  font-size: 12px;
+}
+
+@keyframes registerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .register-page {
+    padding: 20px 14px;
+  }
+
+  .register-card {
+    padding: 30px 22px;
+  }
+
+  .register-title {
+    font-size: 28px;
+  }
+
+  .register-card h2 {
+    font-size: 22px;
+  }
+}
