@@ -23,6 +23,7 @@
     "picocolors": "^1.1.1",
     "picomatch": "^4.0.7",
     "postcss": "^8.5.31",
+    "razorpay": "^2.9.8",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router": "^7.18.4",

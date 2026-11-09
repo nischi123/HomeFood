@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 const authRoutes = require("./routes/auth");
+const paymentRoutes = require("./routes/payment");
 
 // Middleware
 app.use(
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/payment", paymentRoutes);
 
 app.get("/", (req, res) => {
   res.send("Home Food backend is running!");
