@@ -34,7 +34,7 @@ HomeFood is an actively evolving project. The following features are planned for
 | Socket.IO | Real-time order status updates and notifications | Planned |
 | OAuth 2.0 | Google authentication and social login | Planned |
 | CI/CD | Automated testing, Docker image builds and deployment using GitHub Actions | Planned |
-
+| AI | AI Chat Assistant for customer support | Planned |
 ### Development Goals
 
 - Improve application scalability and performance.
