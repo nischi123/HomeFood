@@ -9,8 +9,6 @@ HomeFood is an actively evolving project. The following features are planned for
 | RBAC | Role-Based Access Control for Customers, Restaurant Admins and Super Admins | Planned |
 | Rate Limiting | Protecting APIs against excessive requests and brute-force attacks | Planned |
 | Socket.IO | Real-time order status updates and notifications | Planned |
-| Payment Gateway | Online payment integration using Razorpay | Planned |
-| Idempotency Keys | Preventing duplicate payment processing during retries | Planned |
 | OAuth 2.0 | Google authentication and social login | Planned |
 | CI/CD | Automated testing, Docker image builds and deployment using GitHub Actions | Planned |
 
@@ -201,6 +199,17 @@ Authentication workflow:
 5. The JWT is stored in an HTTP-only cookie.
 6. Authentication middleware verifies the JWT before allowing access to protected routes.
 
+💳 Payment Integration
+
+HomeFood integrates the Razorpay Payment Gateway to enable secure online payments for food orders.
+
+Integrated Razorpay for online payment processing.
+
+Implemented payment order creation and payment verification.
+
+Added Idempotency Keys to prevent duplicate payment processing during retries.
+
+Improved payment reliability by handling repeated payment requests safely.
 ## 👨‍💻 Author
 
 **Nischala K**
