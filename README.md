@@ -1,72 +1,27 @@
+## ✅ Completed Features
+
+| Feature | Implementation | Status |
+|---|---|---|
+| User Authentication | JWT authentication using HTTP-only cookies | Completed |
+| Password Security | Password hashing using bcrypt | Completed |
+| User Profile Management | Protected profile access and profile updates | Completed |
+| Food Listing | Displaying available food items | Completed |
+| Shopping Cart | Cart interface for managing food items | Completed |
+| Docker Containerization | Frontend and backend containerization using Docker Compose | Completed |
+| Razorpay Payment Gateway | Online payment integration using Razorpay | Completed |
+| Payment Order Creation | Creating payment orders through Razorpay | Completed |
+| Payment Verification | Verifying payment transactions | Completed |
+| Idempotency Keys | Preventing duplicate payment processing during retries | Completed |
 
 
-✅ Completed Features
+### Development Goals
 
-Feature
+- Improve application scalability and performance.
+- Strengthen API security and access control.
+- Introduce real-time order tracking.
+- Automate testing and deployment workflows.
 
-Implementation
-
-Status
-
-User Authentication
-
-JWT authentication using HTTP-only cookies
-
-Completed
-
-Password Security
-
-Password hashing using bcrypt
-
-Completed
-
-User Profile Management
-
-Protected profile access and profile updates
-
-Completed
-
-Food Listing
-
-Displaying available food items
-
-Completed
-
-Shopping Cart
-
-Cart interface for managing food items
-
-Completed
-
-Docker Containerization
-
-Frontend and backend containerization using Docker Compose
-
-Completed
-
-Razorpay Payment Gateway
-
-Online payment integration using Razorpay
-
-Completed
-
-Payment Order Creation
-
-Creating payment orders through Razorpay
-
-Completed
-
-Payment Verification
-
-Verifying payment transactions
-
-Completed
-
-Idempotency Keys
-
-Preventing duplicate payment processing during retries
-
-Completed
+These enhancements will be implemented incrementally as part of the project's ongoing development.
 ## 🚧 Project Roadmap – Upcoming Features
 
 HomeFood is an actively evolving project. The following features are planned for future development to improve scalability, security, performance and real-time user experience.
